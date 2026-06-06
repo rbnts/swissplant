@@ -1,8 +1,10 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
   import { page } from "$app/state";
-  import { Icon } from "$components";
+  import { Logo } from "$components";
   import { match as isLang } from "$params/lang";
+  import Menu from "@lucide/svelte/icons/menu";
+  import X from "@lucide/svelte/icons/x";
   import { throttle } from "es-toolkit";
   import type { Attachment } from "svelte/attachments";
   import { on } from "svelte/events";
@@ -13,7 +15,7 @@
   let navigationRef: HTMLElement;
 
   const lang = $derived(
-    isLang(page.params.lang) ? page.params.lang : "de"
+    isLang(page.params["lang"]) ? page.params["lang"] : "de"
   );
   const route = $derived(page.route.id ?? "/[lang=lang]");
 
@@ -129,7 +131,7 @@
     >
       <span class="sr-only">{homeLinkSrOnlyText}</span>
       <div class="header-navigation-logo">
-        <Icon name="swissplant-bare" />
+        <Logo name="swissplantBare" />
       </div>
     </a>
     <button
@@ -142,12 +144,8 @@
       type="button"
     >
       <span class="sr-only">{toggleSrOnlyText}</span>
-      <div class="navigation-bar-toggle-icon-menu">
-        <Icon name="menu" size="small" />
-      </div>
-      <div class="navigation-bar-toggle-icon-x">
-        <Icon name="x" size="small" />
-      </div>
+      <div class="navigation-bar-toggle-icon-menu"><Menu /></div>
+      <div class="navigation-bar-toggle-icon-x"><X /></div>
     </button>
   </div>
   <div
@@ -169,14 +167,14 @@
       <li class="navigation-item">
         <a
           class="navigation-language-toggle"
-          class:active={page.params.lang === "de"}
+          class:active={page.params["lang"] === "de"}
           data-sveltekit-noscroll
           data-umami-event="change-language-to-de"
           href={resolve(route, { lang: "de" })}
         >DE</a>
         <a
           class="navigation-language-toggle"
-          class:active={page.params.lang === "en"}
+          class:active={page.params["lang"] === "en"}
           data-sveltekit-noscroll
           data-umami-event="change-language-to-en"
           href={resolve(route, { lang: "en" })}

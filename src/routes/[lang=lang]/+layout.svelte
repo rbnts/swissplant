@@ -2,7 +2,6 @@
   import { dev } from "$app/environment";
   import { page } from "$app/state";
   import { Footer, Navigation } from "$components";
-  import favicon from "$img/favicon.svg";
   import { match as isLang } from "$params/lang";
   import "$styles/base.scss";
   import type { LayoutProps } from "./$types";
@@ -13,7 +12,7 @@
     const { meta } = page.data;
     const { url } = page;
     const { params } = page;
-    const lang = isLang(params.lang) ? params.lang : "de";
+    const lang = isLang(params["lang"]) ? params["lang"] : "de";
 
     const canonical = `https://swissplant.ch${url.pathname}`;
     const alternates = [
@@ -36,13 +35,9 @@
 </script>
 
 <svelte:head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content={pageMeta.description} />
   <meta name="keywords" content={pageMeta.keywords} />
-  <meta name="theme-color" content="#fff" />
   <title>{pageMeta.title}</title>
-  <link href={favicon} rel="icon" />
 
   <link href={pageMeta.canonical} rel="canonical" />
   {#each pageMeta.alternates as { href, hreflang } (hreflang)}

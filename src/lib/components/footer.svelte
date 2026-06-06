@@ -1,11 +1,11 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
   import { page } from "$app/state";
-  import { ContactLink, Icon } from "$components";
+  import { ContactLink, Logo } from "$components";
   import { match as isLang } from "$params/lang";
 
   const lang = $derived(
-    isLang(page.params.lang) ? page.params.lang : "de"
+    isLang(page.params["lang"]) ? page.params["lang"] : "de"
   );
 
   const openingHours = $derived({
@@ -90,10 +90,10 @@
   <div class="footer-content">
     <div class="footer-content-left" aria-hidden="true">
       <div class="footer-logo">
-        <Icon name="swissplant-bare" />
+        <Logo name="swissplantBare" />
       </div>
       <div class="footer-logo">
-        <Icon name="agriplant-bare" />
+        <Logo name="agriplantBare" />
       </div>
     </div>
     <div class="footer-content-center">

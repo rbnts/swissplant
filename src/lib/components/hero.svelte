@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon } from "$components";
+  import { Logo } from "$components";
   import type { Attachment } from "svelte/attachments";
   import type { HTMLImgAttributes } from "svelte/elements";
 
@@ -30,7 +30,7 @@
 <header class={["hero", { big }]} {@attach startSlider}>
   {#if big}
     <div class="hero-logo">
-      <Icon name="swissplant" />
+      <Logo name="swissplant" />
     </div>
   {/if}
 
