@@ -92,6 +92,7 @@
     height: 100%;
 
     :global(iframe) {
+      aspect-ratio: 4 / 3;
       border-radius: 0;
     }
   }
