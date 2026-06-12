@@ -1,13 +1,13 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
   import { page } from "$app/state";
-  import { Logo } from "$components";
   import { match as isLang } from "$params/lang";
   import Menu from "@lucide/svelte/icons/menu";
   import X from "@lucide/svelte/icons/x";
   import { throttle } from "es-toolkit";
   import type { Attachment } from "svelte/attachments";
   import { on } from "svelte/events";
+  import Logo from "./logo.svelte";
 
   let prevScrollY = $state.raw(0);
   let isHidden = $state.raw(false);

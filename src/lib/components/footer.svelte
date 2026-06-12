@@ -1,8 +1,9 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
   import { page } from "$app/state";
-  import { ContactLink, Logo } from "$components";
   import { match as isLang } from "$params/lang";
+  import ContactLink from "./contact-link.svelte";
+  import Logo from "./logo.svelte";
 
   const lang = $derived(
     isLang(page.params["lang"]) ? page.params["lang"] : "de"

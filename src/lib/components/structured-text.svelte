@@ -1,17 +1,14 @@
 <script lang="ts">
-  import { render } from "datocms-structured-text-to-html-string";
-
   interface Props {
-    document: Exclude<Parameters<typeof render>[0], null | undefined>;
-    options?: Parameters<typeof render>[1];
+    html: string;
   }
 
-  const { document, options }: Props = $props();
+  const { html }: Props = $props();
 </script>
 
 <section class="structured-text">
   <!-- eslint-disable-next-line svelte/no-at-html-tags -->
-  {@html render(document, options)}
+  {@html html}
 </section>
 
 <style lang="scss">

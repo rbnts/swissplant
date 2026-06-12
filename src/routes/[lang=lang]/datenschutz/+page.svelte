@@ -1,5 +1,7 @@
 <script lang="ts">
-  import { Content, Hero, StructuredText } from "$components";
+  import Content from "$components/content.svelte";
+  import Hero from "$components/hero.svelte";
+  import StructuredText from "$components/structured-text.svelte";
   import type { PageProps } from "./$types";
   const { data }: PageProps = $props();
 </script>

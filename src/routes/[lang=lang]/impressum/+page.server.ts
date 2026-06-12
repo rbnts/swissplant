@@ -1,4 +1,5 @@
 import aerial from "$img/aerials/1.avif";
+import { render } from "datocms-structured-text-to-html-string";
 import type { PageServerLoad } from "./$types";
 
 const translations = {
@@ -17,7 +18,7 @@ const translations = {
       ]
     },
     structuredText: {
-      document: {
+      html: render({
         type: "root",
         children: [
           {
@@ -136,7 +137,7 @@ const translations = {
             ]
           }
         ]
-      }
+      }) ?? ""
     }
   },
   en: {
@@ -154,7 +155,7 @@ const translations = {
       ]
     },
     structuredText: {
-      document: {
+      html: render({
         type: "root",
         children: [
           {
@@ -273,7 +274,7 @@ const translations = {
             ]
           }
         ]
-      }
+      }) ?? ""
     }
   }
 } satisfies App.Translations;

@@ -1,5 +1,9 @@
 <script lang="ts">
-  import { Content, Hero, Iframe, StructuredText, Table } from "$components";
+  import Content from "$components/content.svelte";
+  import Hero from "$components/hero.svelte";
+  import Iframe from "$components/iframe.svelte";
+  import StructuredText from "$components/structured-text.svelte";
+  import Table from "$components/table.svelte";
   import type { PageProps } from "./$types";
   const { data }: PageProps = $props();
 </script>

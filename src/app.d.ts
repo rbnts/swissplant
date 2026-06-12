@@ -1,4 +1,8 @@
-import type { Hero, SplitTile, StructuredText, Table, TeamGrid } from "$components";
+import type Hero from "$components/hero.svelte";
+import type SplitTile from "$components/split-tile.svelte";
+import type StructuredText from "$components/structured-text.svelte";
+import type Table from "$components/table.svelte";
+import type TeamGrid from "$components/team-grid.svelte";
 import "@total-typescript/ts-reset";
 import type { ComponentProps } from "svelte";
 

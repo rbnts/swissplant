@@ -1,8 +1,8 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
-  import { Iframe } from "$components";
   import type { ComponentProps } from "svelte";
   import type { HTMLImgAttributes } from "svelte/elements";
+  import Iframe from "./iframe.svelte";
 
   interface BaseProps {
     even: boolean;

@@ -1,6 +1,6 @@
 ---
 name: svelte
-description: Fetch up-to-date Svelte/SvelteKit docs before writing or editing Svelte code. Use proactively whenever the task involves .svelte files, SvelteKit routes, runes, stores, load functions, or any Svelte/SvelteKit API — training data is stale, always fetch first.
+description: Fetch up-to-date docs before writing, editing or reasoning about Svelte and SvelteKit code. Use proactively whenever the task involves .svelte files, SvelteKit routes, runes, stores, load functions, or any Svelte/SvelteKit API.
 ---
 
 Your training data for Svelte and SvelteKit is out of date. **Fetch docs before writing any code!**

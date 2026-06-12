@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { ContactLink } from "$components";
   import { kebabCase } from "es-toolkit";
   import type { HTMLImgAttributes } from "svelte/elements";
+  import ContactLink from "./contact-link.svelte";
 
   interface Member {
     name: string;

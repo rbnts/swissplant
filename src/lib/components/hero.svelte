@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { Logo } from "$components";
   import type { Attachment } from "svelte/attachments";
   import type { HTMLImgAttributes } from "svelte/elements";
+  import Logo from "./logo.svelte";
 
   interface Props {
     images: HTMLImgAttributes[];

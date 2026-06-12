@@ -1,7 +1,8 @@
 <script lang="ts">
   import { dev } from "$app/environment";
   import { page } from "$app/state";
-  import { Footer, Navigation } from "$components";
+  import Footer from "$components/footer.svelte";
+  import Navigation from "$components/navigation.svelte";
   import { match as isLang } from "$params/lang";
   import "$styles/base.scss";
   import type { LayoutProps } from "./$types";
