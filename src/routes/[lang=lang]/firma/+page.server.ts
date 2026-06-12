@@ -5,8 +5,7 @@ const translations = {
   de: {
     meta: {
       title: "Firma — SwissPlant GmbH",
-      description: "Informieren Sie sich darüber, wie die SwissPlant GmbH funktioniert.",
-      keywords: "über uns, anfang, geschichte, müntschemier, erfahrung, gemüsebau, kompetent, muentschemier, swissplant, agriplant, swissplant gmbh, agriplant ag"
+      description: "Informieren Sie sich darüber, wie die SwissPlant GmbH funktioniert."
     },
     heading: "Firma",
     hero: {
@@ -227,8 +226,7 @@ const translations = {
   en: {
     meta: {
       title: "Company — SwissPlant GmbH",
-      description: "Learn about how SwissPlant GmbH operates.",
-      keywords: "about us, beginning, history, müntschemier, experience, vegetable cultivation, competent, muentschemier, swissplant, agriplant, swissplant gmbh, agriplant ag"
+      description: "Learn about how SwissPlant GmbH operates."
     },
     heading: "Company",
     hero: {

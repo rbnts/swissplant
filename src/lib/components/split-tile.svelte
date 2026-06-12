@@ -42,8 +42,8 @@
   {/if}
 
   <div class="split-tile-content">
-    <h2 class="split-tile-title">{title}</h2>
-    <p class="split-tile-description">{description}</p>
+    <h2>{title}</h2>
+    <p>{description}</p>
     <a class="split-tile-cta" data-umami-event={cta.event} href={resolve(cta.url, {})}>
       {cta.label}
     </a>

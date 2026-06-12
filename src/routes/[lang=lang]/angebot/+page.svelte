@@ -16,7 +16,6 @@
 
   <Iframe
     allow="fullscreen; picture-in-picture"
-    ar={16 / 9}
     loading="lazy"
     src="https://www.youtube-nocookie.com/embed/H2mMli5KiKY"
     title="SwissPlant: PlantTape im Einsatz"

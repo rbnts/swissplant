@@ -5,10 +5,10 @@ const translations = {
   de: {
     meta: {
       title: "Jobs — SwissPlant GmbH",
-      description: "Wir sind ein zukunftsorientiertes Unternehmen in der Gemüsejungpflanzenherstellung. Unsere Firmenkultur ist geprägt durch Flexibilität, Offenheit und Anpassungsfähigkeit.",
-      keywords: "swissplant, agriplant, jobs, stellen, inserate, stelleninserate, jobangebot, arbeit"
+      description: "Wir sind ein zukunftsorientiertes Unternehmen in der Gemüsejungpflanzenherstellung. Unsere Firmenkultur ist geprägt durch Flexibilität, Offenheit und Anpassungsfähigkeit."
     },
     heading: "Offene Stellen",
+    noPositions: "Zurzeit sind keine Stellen ausgeschrieben.",
     hero: {
       images: [
         {
@@ -37,10 +37,10 @@ const translations = {
   en: {
     meta: {
       title: "Jobs — SwissPlant GmbH",
-      description: "We are a future-oriented company in vegetable seedling production. Our company culture is characterized by flexibility, openness and adaptability.",
-      keywords: "swissplant, agriplant, jobs, job offers, work"
+      description: "We are a future-oriented company in vegetable seedling production. Our company culture is characterized by flexibility, openness and adaptability."
     },
     heading: "Open Positions",
+    noPositions: "There are currently no open positions.",
     hero: {
       images: [
         {

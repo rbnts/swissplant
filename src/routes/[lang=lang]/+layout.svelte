@@ -29,14 +29,14 @@
     return { ...meta, lang, canonical, alternates };
   });
 
-  $effect.pre(() => {
+  $effect(() => {
     document.documentElement.lang = pageMeta.lang;
   });
 </script>
 
 <svelte:head>
+  <link href="https://cloud.umami.is" rel="preconnect" />
   <meta name="description" content={pageMeta.description} />
-  <meta name="keywords" content={pageMeta.keywords} />
   <title>{pageMeta.title}</title>
 
   <link href={pageMeta.canonical} rel="canonical" />

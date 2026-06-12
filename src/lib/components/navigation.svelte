@@ -151,6 +151,7 @@
   <div
     id="navigation-expando"
     class="navigation-expando"
+    aria-hidden={!isOpen}
   >
     <ul class="navigation-list">
       {#each navigationItems as item (item.route)}

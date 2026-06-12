@@ -5,8 +5,7 @@ const translations = {
   de: {
     meta: {
       title: "Kontakt — SwissPlant GmbH",
-      description: "Erfahren Sie, wie Sie am schnellsten zu uns finden oder uns am einfachsten erreichen.",
-      keywords: "kontakt, mail, email, telefon, bern, neuenburg, neuchatel, kerzers, müntschemier, muentschemier, ins, auto, autobahn, ankunft, anfahrt, swissplant, agriplant"
+      description: "Erfahren Sie, wie Sie am schnellsten zu uns finden oder uns am einfachsten erreichen."
     },
     heading: "Kontakt",
     hero: {
@@ -66,8 +65,7 @@ const translations = {
   en: {
     meta: {
       title: "Contact — SwissPlant GmbH",
-      description: "Learn how to best get in touch with us. Or get directions to get to our site.",
-      keywords: "contact, mail, email, phone, bern, neuenburg, neuchatel, kerzers, müntschemier, muentschemier, ins, car, freeway, arrival, train, train station"
+      description: "Learn how to best get in touch with us. Or get directions to get to our site."
     },
     heading: "Contact",
     hero: {

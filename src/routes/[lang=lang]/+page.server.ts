@@ -10,8 +10,7 @@ const translations = {
   de: {
     meta: {
       title: "SwissPlant GmbH — Ihr Spezialist für Gemüsejungpflanzen",
-      description: "Die Swissplant GmbH ist Ihr Ansprechpartner für professionellen Gemüseanbau im Berner Seeland. Bei uns bekommen Sie Warmhauspflanzen in verschiedenen Varianten.",
-      keywords: "gemüse, gemuese, jungpflanzen, setzlinge, salat, schweiz, seeland, müntschemier, muentschemier, swissplant, agriplant, swissplant gmbh, agriplant ag, anbau, warmhauspflanzen, distro"
+      description: "Die Swissplant GmbH ist Ihr Ansprechpartner für professionellen Gemüseanbau im Berner Seeland. Bei uns bekommen Sie Warmhauspflanzen in verschiedenen Varianten."
     },
     heading: "Startseite",
     hero: {
@@ -85,7 +84,6 @@ const translations = {
         iframe: {
           src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d87077.36113973339!2d7.146476148343918!3d46.99768327720842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478e1186bcd0321b%3A0x438446635d8d02ab!2sSwissPlant%20GmbH!5e0!3m2!1sen!2sch!4v1631345560961!5m2!1sen!2sch",
           title: "Google Maps",
-          ar: 4 / 3,
           loading: "lazy"
         },
         title: "Wie Sie uns erreichen",
@@ -101,8 +99,7 @@ const translations = {
   en: {
     meta: {
       title: "SwissPlant GmbH — Your specialist for vegetable young plants",
-      description: "Swissplant GmbH is your partner for professional vegetable cultivation in the Bernese Seeland. We offer warm house plants in various varieties.",
-      keywords: "vegetable, young plants, seedlings, lettuce, switzerland, seeland, müntschemier, muentschemier, swissplant, agriplant, swissplant gmbh, agriplant ag, cultivation, warm house plants, distro"
+      description: "Swissplant GmbH is your partner for professional vegetable cultivation in the Bernese Seeland. We offer warm house plants in various varieties."
     },
     heading: "Home",
     hero: {
@@ -176,7 +173,6 @@ const translations = {
         iframe: {
           src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d87077.36113973339!2d7.146476148343918!3d46.99768327720842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478e1186bcd0321b%3A0x438446635d8d02ab!2sSwissPlant%20GmbH!5e0!3m2!1sen!2sch!4v1631345560961!5m2!1sen!2sch",
           title: "Google Maps",
-          ar: 4 / 3,
           loading: "lazy"
         },
         title: "How to reach us",

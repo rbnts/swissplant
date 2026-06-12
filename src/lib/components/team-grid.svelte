@@ -26,14 +26,14 @@
   );
 </script>
 
-<section class="team-grid">
+<section>
   <ul class="team-grid-list">
     {#each members as member (member.name)}
       <li class="team-grid-item">
         <img {...member.image} class="team-grid-item-image" />
         <div class="team-grid-item-info">
           <span class="team-grid-item-name">{member.name}</span>
-          <span class="team-grid-item-position">{member.position}</span>
+          <span>{member.position}</span>
           {#if member.contact?.email}
             <ContactLink
               data-umami-event={makeEvent(member.name, "email")}

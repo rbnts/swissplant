@@ -16,16 +16,25 @@
     let interval: number | undefined;
 
     if (images.length > 1) {
-      interval = setInterval(() => {
+      interval = window.setInterval(() => {
         visibleIndex = (visibleIndex + 1) % images.length;
       }, 10_000);
     }
 
     return () => {
-      clearInterval(interval);
+      window.clearInterval(interval);
     };
   };
 </script>
+
+<svelte:head>
+  <link
+    as="image"
+    fetchpriority="high"
+    href={images.at(0)?.src}
+    rel="preload"
+  />
+</svelte:head>
 
 <header class={["hero", { big }]} {@attach startSlider}>
   {#if big}

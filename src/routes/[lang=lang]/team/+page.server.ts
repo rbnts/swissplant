@@ -16,8 +16,7 @@ const translations = {
   de: {
     meta: {
       title: "Team — SwissPlant GmbH",
-      description: "Erfahren Sie, wer bei der SwissPlant GmbH angestellt ist.",
-      keywords: "mitarbeiter, angestellte, sales, kontaktdaten, muentschemier, müntschemier, swissplant, agriplant, swissplant gmbh, agriplant ag"
+      description: "Erfahren Sie, wer bei der SwissPlant GmbH angestellt ist."
     },
     heading: "Team",
     hero: {
@@ -160,8 +159,7 @@ const translations = {
   en: {
     meta: {
       title: "Team — SwissPlant GmbH",
-      description: "Meet the team behind SwissPlant GmbH. Learn more about our expertise and passion for plants.",
-      keywords: "Team, SwissPlant, Plants, Expertise, Passion"
+      description: "Meet the team behind SwissPlant GmbH. Learn more about our expertise and passion for plants."
     },
     heading: "Team",
     hero: {

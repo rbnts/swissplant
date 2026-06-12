@@ -15,7 +15,7 @@
     const address = href.split(":").at(1);
 
     if (address) {
-      element.dataset.label = reverse(address);
+      element.dataset["label"] = reverse(address);
 
       on(element, "click", (event) => {
         event.preventDefault();

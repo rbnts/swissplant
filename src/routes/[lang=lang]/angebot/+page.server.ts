@@ -5,8 +5,7 @@ const translations = {
   de: {
     meta: {
       title: "Angebot — SwissPlant GmbH",
-      description: "Schauen Sie sich unser Angebot an. Wir bieten Warmhauspflanzen verschiedener Sorten an.",
-      keywords: "salat, sellerie, kohl, zucchini, tomaten, gurken, lauch, fenchel, setzlinge, warmhauspflanzen, steinwolle, erde, jungpflanzen, angebot, swissplant, agriplant"
+      description: "Schauen Sie sich unser Angebot an. Wir bieten Warmhauspflanzen verschiedener Sorten an."
     },
     heading: "Angebot",
     hero: {
@@ -68,8 +67,7 @@ const translations = {
   en: {
     meta: {
       title: "Portfolio — SwissPlant GmbH",
-      description: "This is our portfolio. We offer a wide range of warm house plants and individual consultings.",
-      keywords: "salad, salads, celery, cabbage, cabbages, zucchini, tomato, tomatoes, cucumber, cucumbers, leek, fennel, warm house, plants, warm house plants, mineral wool, soil, sales, swissplant, agriplant, portfolio"
+      description: "This is our portfolio. We offer a wide range of warm house plants and individual consultings."
     },
     heading: "Portfolio",
     hero: {

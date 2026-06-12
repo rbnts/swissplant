@@ -5,8 +5,7 @@ const translations = {
   de: {
     meta: {
       title: "Impressum — SwissPlant GmbH",
-      description: "Kontaktinformationen und rechtliche Angaben zu SwissPlant GmbH und AgriPlant AG in Müntschemier. Öffnungszeiten, Adresse und Telefonnummer.",
-      keywords: "swissplant, agriplant, impressum, kontakt, adresse, müntschemier, telefon, öffnungszeiten, rechtliche angaben"
+      description: "Kontaktinformationen und rechtliche Angaben zu SwissPlant GmbH und AgriPlant AG in Müntschemier. Öffnungszeiten, Adresse und Telefonnummer."
     },
     heading: "Impressum",
     hero: {
@@ -143,8 +142,7 @@ const translations = {
   en: {
     meta: {
       title: "Imprint — SwissPlant GmbH",
-      description: "Contact information and legal details for SwissPlant GmbH and AgriPlant AG in Müntschemier. Opening hours, address and phone number.",
-      keywords: "swissplant, agriplant, imprint, contact, address, müntschemier, phone, opening hours, legal information"
+      description: "Contact information and legal details for SwissPlant GmbH and AgriPlant AG in Müntschemier. Opening hours, address and phone number."
     },
     heading: "Imprint",
     hero: {

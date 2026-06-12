@@ -88,7 +88,7 @@
 
 <footer class="footer">
   <div class="footer-content">
-    <div class="footer-content-left" aria-hidden="true">
+    <div aria-hidden="true">
       <div class="footer-logo">
         <Logo name="swissplantBare" />
       </div>
@@ -96,7 +96,7 @@
         <Logo name="agriplantBare" />
       </div>
     </div>
-    <div class="footer-content-center">
+    <div>
       <p class="footer-text">
         Spitzallmendweg 11c<br />
         CH-3225 Müntschemier
@@ -115,21 +115,21 @@
         />
       </p>
     </div>
-    <div class="footer-content-right">
+    <div>
       <p class="footer-text footer-opening-hours">
         {openingHours}
       </p>
       <p class="footer-text">
         <ContactLink
           data-umami-event="footer-phone"
-          href="tel:+41 32 313 52 10"
+          href="tel:+41323135210"
           label={phoneNumber}
         />
       </p>
     </div>
   </div>
   <hr class="footer-hr" />
-  <nav class="footer-navigation" aria-label="Navigation in der Fusszeile">
+  <nav class="footer-navigation" aria-label={{ de: "Navigation in der Fusszeile", en: "Footer navigation" }[lang]}>
     <ul class="footer-navigation-list">
       {#each navigationItems as item (item.route)}
         <li class="footer-navigation-item">

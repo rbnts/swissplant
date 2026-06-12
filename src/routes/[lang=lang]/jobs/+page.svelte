@@ -10,8 +10,6 @@
   <StructuredText {...data.structuredText} />
   <hr />
   <ul>
-    <li>
-      Zurzeit sind keine Stellen ausgeschrieben.
-    </li>
+    <li>{data.noPositions}</li>
   </ul>
 </Content>
