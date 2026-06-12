@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { resolve } from "$app/paths";
   import type { ComponentProps } from "svelte";
   import type { HTMLImgAttributes } from "svelte/elements";
   import Iframe from "./iframe.svelte";
@@ -35,16 +34,14 @@
     <div class="split-tile-iframe">
       <Iframe {...variant.iframe} />
     </div>
-  {/if}
-
-  {#if variant.type === "image"}
+  {:else}
     <img {...variant.image} class="split-tile-image" />
   {/if}
 
   <div class="split-tile-content">
     <h2>{title}</h2>
     <p>{description}</p>
-    <a class="split-tile-cta" data-umami-event={cta.event} href={resolve(cta.url, {})}>
+    <a class="split-tile-cta" data-umami-event={cta.event} href={cta.url}>
       {cta.label}
     </a>
   </div>

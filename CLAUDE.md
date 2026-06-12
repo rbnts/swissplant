@@ -5,14 +5,11 @@ Static marketing site for SwissPlant GmbH, built with SvelteKit + `adapter-stati
 ## Commands
 
 ```bash
-node --run start # dev server
-node --run build # production build → build/
+node --run start   # dev server
+node --run build   # production build → build/
+node --run preview # production server
 ```
 
-There's no test, lint, or typecheck scripts. Run via `eslint`, `stylelint`, `svelte-check` directly.
+## Rules
 
-## Architecture
-
-All content routes live under `src/routes/[lang=lang]/` — the `lang` param matcher constrains it to `"de" | "en"`. The root `/` redirects client-side based on browser language.
-
-Translations are inline in each route's `+page.server.ts` as a `translations` object keyed by `App.Lang`. Every page also exports `entries` to generate static paths for both locales.
+- Avoid assumptions and generously use `AskUserQuestion` before starting a task.

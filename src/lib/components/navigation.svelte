@@ -1,11 +1,11 @@
 <script lang="ts">
+  import { afterNavigate } from "$app/navigation";
   import { resolve } from "$app/paths";
   import { page } from "$app/state";
   import { match as isLang } from "$params/lang";
   import Menu from "@lucide/svelte/icons/menu";
   import X from "@lucide/svelte/icons/x";
   import { throttle } from "es-toolkit";
-  import type { Attachment } from "svelte/attachments";
   import { on } from "svelte/events";
   import Logo from "./logo.svelte";
 
@@ -77,13 +77,13 @@
     isOpen = !isOpen;
   };
 
-  const handleOutsideClick: EventListener = ({ target }) => {
+  const handleOutsideClick = ({ target }: MouseEvent) => {
     if (isOpen && target instanceof HTMLElement && !navigationRef.contains(target)) {
       isOpen = false;
     }
   };
 
-  const handleWindowScroll = () => {
+  const handleWindowScroll = throttle(() => {
     const newValue = window.scrollY > prevScrollY && window.scrollY > 100;
 
     if (isHidden !== newValue) {
@@ -95,26 +95,22 @@
     }
 
     prevScrollY = window.scrollY;
-  };
+  }, 100);
 
-  const handleItemClick = () => {
-    isOpen = false;
-  };
-
-  const mounted: Attachment<Window> = (element) => {
-    prevScrollY = element.scrollY;
-
-    const offOutsideClick = on(element, "click", handleOutsideClick);
-    const offScrollDir = on(element, "scroll", throttle(handleWindowScroll, 100));
+  $effect(() => {
+    const offClick = on(window, "click", handleOutsideClick, { passive: true });
+    const offScroll = on(window, "scroll", handleWindowScroll, { passive: true });
 
     return () => {
-      offOutsideClick();
-      offScrollDir();
+      offClick();
+      offScroll();
     };
-  };
-</script>
+  });
 
-<svelte:window {@attach mounted} />
+  afterNavigate(() => {
+    isOpen = false;
+  });
+</script>
 
 <nav
   bind:this={navigationRef}
@@ -124,10 +120,8 @@
   <div class="navigation-bar">
     <a
       class="navigation-bar-logo"
-      data-sveltekit-noscroll
       data-umami-event="navigation-bar-link-home"
       href={resolve("/[lang=lang]", { lang })}
-      onclick={handleItemClick}
     >
       <span class="sr-only">{homeLinkSrOnlyText}</span>
       <div class="header-navigation-logo">
@@ -161,21 +155,20 @@
             class:active={item.route === route}
             data-umami-event={item.event}
             href={resolve(item.route, { lang })}
-            onclick={handleItemClick}
           >{item[lang]}</a>
         </li>
       {/each}
       <li class="navigation-item">
         <a
           class="navigation-language-toggle"
-          class:active={page.params["lang"] === "de"}
+          class:active={lang === "de"}
           data-sveltekit-noscroll
           data-umami-event="change-language-to-de"
           href={resolve(route, { lang: "de" })}
         >DE</a>
         <a
           class="navigation-language-toggle"
-          class:active={page.params["lang"] === "en"}
+          class:active={lang === "en"}
           data-sveltekit-noscroll
           data-umami-event="change-language-to-en"
           href={resolve(route, { lang: "en" })}
@@ -281,7 +274,7 @@
     visibility: hidden;
     grid-template-columns: 1fr 1fr;
     overflow: hidden;
-    transition: visibility 0.3s ease-in-out;
+    transition: visibility 0.3s;
 
     .open & {
       visibility: unset;

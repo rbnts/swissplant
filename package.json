@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
+    "lint": "eslint src/**/*.{ts,svelte} && stylelint src/**/*.{scss,svelte} && svelte-check",
     "prepare": "svelte-kit sync",
     "preview": "vite preview",
-    "start": "vite --host"
+    "start": "vite --host --open"
   },
   "dependencies": {
     "@fontsource-utils/scss": "0.2.2",
