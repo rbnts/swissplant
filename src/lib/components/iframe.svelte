@@ -1,8 +1,18 @@
 <script lang="ts">
   import type { HTMLIframeAttributes } from "svelte/elements";
 
-  const { ...attributes }: HTMLIframeAttributes = $props();
+  interface Props extends HTMLIframeAttributes {
+    src: string;
+    title: string;
+  }
+
+  const { ...attributes }: Props = $props();
+  const origin = $derived(new URL(attributes.src).origin);
 </script>
+
+<svelte:head>
+  <link href={origin} rel="preconnect" />
+</svelte:head>
 
 <iframe {...attributes}></iframe>
 
