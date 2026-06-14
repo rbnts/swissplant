@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { dev } from "$app/environment";
   import { page } from "$app/state";
   import Footer from "$components/footer.svelte";
   import Navigation from "$components/navigation.svelte";
@@ -36,7 +35,6 @@
 </script>
 
 <svelte:head>
-  <link href="https://cloud.umami.is" rel="preconnect" />
   <meta name="description" content={pageMeta.description} />
   <title>{pageMeta.title}</title>
 
@@ -44,15 +42,6 @@
   {#each pageMeta.alternates as { href, hreflang } (hreflang)}
     <link {href} {hreflang} rel="alternate" />
   {/each}
-
-  {#if !dev}
-    <script
-      data-website-id="394b5468-7f5b-4078-8102-ed21d4a664e4"
-      defer
-      fetchpriority="low"
-      src="https://cloud.umami.is/script.js"
-    ></script>
-  {/if}
 </svelte:head>
 
 <Navigation />

@@ -33,55 +33,46 @@
     {
       de: "Home",
       en: "Home",
-      event: "footer-link-home",
       route: "/[lang=lang]"
     },
     {
       de: "Firma",
       en: "Company",
-      event: "footer-link-company",
       route: "/[lang=lang]/firma"
     },
     {
       de: "Team",
       en: "Team",
-      event: "footer-link-team",
       route: "/[lang=lang]/team"
     },
     {
       de: "Angebot",
       en: "Portfolio",
-      event: "footer-link-portfolio",
       route: "/[lang=lang]/angebot"
     },
     {
       de: "Partner",
       en: "Partners",
-      event: "footer-link-partners",
       route: "/[lang=lang]/partner"
     },
     {
       de: "Kontakt",
       en: "Contact",
-      event: "footer-link-contact",
       route: "/[lang=lang]/kontakt"
     },
     {
       de: "Impressum",
       en: "Imprint",
-      event: "footer-link-imprint",
       route: "/[lang=lang]/impressum"
     },
     {
       de: "Datenschutz",
       en: "Privacy",
-      event: "footer-link-privacy",
       route: "/[lang=lang]/datenschutz"
     },
     {
       de: "Jobs",
       en: "Jobs",
-      event: "footer-link-jobs",
       route: "/[lang=lang]/jobs"
     }
   ];
@@ -104,13 +95,11 @@
       </p>
       <p class="footer-text">
         <ContactLink
-          data-umami-event="footer-swissplant-email"
           href="mailto:info@swissplant.ch"
           label={swissPlantEmail}
         />
         <br />
         <ContactLink
-          data-umami-event="footer-agriplant-email"
           href="mailto:info@agriplant.ch"
           label={agriPlantEmail}
         />
@@ -122,7 +111,6 @@
       </p>
       <p class="footer-text">
         <ContactLink
-          data-umami-event="footer-phone"
           href="tel:+41323135210"
           label={phoneNumber}
         />
@@ -134,7 +122,7 @@
     <ul class="footer-navigation-list">
       {#each navigationItems as item (item.route)}
         <li class="footer-navigation-item">
-          <a data-umami-event={item.event} href={resolve(item.route, { lang })}>
+          <a href={resolve(item.route, { lang })}>
             {item[lang]}
           </a>
         </li>

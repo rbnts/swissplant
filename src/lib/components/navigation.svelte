@@ -38,37 +38,31 @@
     {
       de: "Firma",
       en: "Company",
-      event: "navigation-bar-link-company",
       route: "/[lang=lang]/firma"
     },
     {
       de: "Team",
       en: "Team",
-      event: "navigation-bar-link-team",
       route: "/[lang=lang]/team"
     },
     {
       de: "Angebot",
       en: "Portfolio",
-      event: "navigation-bar-link-portfolio",
       route: "/[lang=lang]/angebot"
     },
     {
       de: "Partner",
       en: "Partners",
-      event: "navigation-bar-link-partners",
       route: "/[lang=lang]/partner"
     },
     {
       de: "Kontakt",
       en: "Contact",
-      event: "navigation-bar-link-contact",
       route: "/[lang=lang]/kontakt"
     },
     {
       de: "Jobs",
       en: "Jobs",
-      event: "navigation-bar-link-jobs",
       route: "/[lang=lang]/jobs"
     }
   ];
@@ -120,7 +114,6 @@
   <div class="navigation-bar">
     <a
       class="navigation-bar-logo"
-      data-umami-event="navigation-bar-link-home"
       href={resolve("/[lang=lang]", { lang })}
     >
       <span class="sr-only">{homeLinkSrOnlyText}</span>
@@ -133,7 +126,6 @@
       class="navigation-bar-toggle"
       aria-controls="navigation-expando"
       aria-expanded={isOpen}
-      data-umami-event={isOpen ? "navigation-bar-toggle-close" : "navigation-bar-toggle-open"}
       onclick={toggle}
       type="button"
     >
@@ -153,7 +145,6 @@
           <a
             class="navigation-link"
             class:active={item.route === route}
-            data-umami-event={item.event}
             href={resolve(item.route, { lang })}
           >{item[lang]}</a>
         </li>
@@ -163,14 +154,12 @@
           class="navigation-language-toggle"
           class:active={lang === "de"}
           data-sveltekit-noscroll
-          data-umami-event="change-language-to-de"
           href={resolve(route, { lang: "de" })}
         >DE</a>
         <a
           class="navigation-language-toggle"
           class:active={lang === "en"}
           data-sveltekit-noscroll
-          data-umami-event="change-language-to-en"
           href={resolve(route, { lang: "en" })}
         >EN</a>
       </li>

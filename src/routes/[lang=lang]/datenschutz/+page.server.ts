@@ -152,37 +152,6 @@ const translations = {
           {
             type: "heading",
             level: 3,
-            children: [{ type: "span", value: "Webanalyse (Umami)" }]
-          },
-          {
-            type: "paragraph",
-            children: [
-              { type: "span", value: "Wir verwenden " },
-              {
-                type: "link",
-                url: "https://umami.is",
-                children: [{ type: "span", value: "Umami" }]
-              },
-              {
-                type: "span",
-                value: " (eu.umami.is) zur anonymen Auswertung von Website-Zugriffen. Umami setzt keine Cookies, erhebt keine personenbezogenen Daten und erstellt keine individuellen Nutzerprofile. Es werden ausschliesslich aggregierte Kennzahlen wie Seitenaufrufe und Herkunftsland erfasst. Die Daten werden auf EU-Servern verarbeitet. Ein Cookie-Banner ist nicht erforderlich."
-              }
-            ]
-          },
-          {
-            type: "paragraph",
-            children: [
-              { type: "span", value: "Weitere Informationen: " },
-              {
-                type: "link",
-                url: "https://umami.is/privacy",
-                children: [{ type: "span", value: "Datenschutzerklärung von Umami" }]
-              }
-            ]
-          },
-          {
-            type: "heading",
-            level: 3,
             children: [{ type: "span", value: "Kontaktaufnahme" }]
           },
           {
@@ -717,37 +686,6 @@ const translations = {
                 type: "link",
                 url: "https://www.statichost.eu/privacy/",
                 children: [{ type: "span", value: "Statichost Privacy Policy" }]
-              }
-            ]
-          },
-          {
-            type: "heading",
-            level: 3,
-            children: [{ type: "span", value: "Web Analytics (Umami)" }]
-          },
-          {
-            type: "paragraph",
-            children: [
-              { type: "span", value: "We use " },
-              {
-                type: "link",
-                url: "https://umami.is",
-                children: [{ type: "span", value: "Umami" }]
-              },
-              {
-                type: "span",
-                value: " (eu.umami.is) for anonymous analysis of website visits. Umami sets no cookies, collects no personal data, and creates no individual user profiles. Only aggregated metrics such as page views and country of origin are recorded. Data is processed on EU servers. No cookie banner is required."
-              }
-            ]
-          },
-          {
-            type: "paragraph",
-            children: [
-              { type: "span", value: "For more information: " },
-              {
-                type: "link",
-                url: "https://umami.is/privacy",
-                children: [{ type: "span", value: "Umami Privacy Policy" }]
               }
             ]
           },

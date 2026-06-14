@@ -40,8 +40,7 @@ const translations = {
         description: "Die Firma SwissPlant GmbH ist Verkaufsstelle für Gemüsejungpflanzen der Firmen AgriPlant AG Schweiz und Gipmans Holland.",
         cta: {
           label: "Über uns",
-          url: resolve("/[lang=lang]/firma", { lang: "de" }),
-          event: "split-tile-about-us"
+          url: resolve("/[lang=lang]/firma", { lang: "de" })
         }
       },
       {
@@ -57,8 +56,7 @@ const translations = {
         description: "Unser Produktionsstandort der Firma AgriPlant AG befindet sich im Berner Seeland. Die zentrale Lage der Firma bietet uns die Möglichkeit Sie schnell und kompetent zu beliefern.",
         cta: {
           label: "Unser Angebot",
-          url: resolve("/[lang=lang]/angebot", { lang: "de" }),
-          event: "split-tile-portfolio"
+          url: resolve("/[lang=lang]/angebot", { lang: "de" })
         }
       },
       {
@@ -74,8 +72,7 @@ const translations = {
         description: "Die Firma Gipmans aus Holland beliefert uns als Sortimentsergänzung mit Warmhaus- und Speedypflanzen.",
         cta: {
           label: "Unsere Partner",
-          url: resolve("/[lang=lang]/partner", { lang: "de" }),
-          event: "split-tile-partners"
+          url: resolve("/[lang=lang]/partner", { lang: "de" })
         }
       },
       {
@@ -90,8 +87,7 @@ const translations = {
         description: "Wir stehen natürlich gerne für allfällige Informationen und Ratschläge zur Verfügung. Egal, ob E-Mail, Telefon oder vor Ort.",
         cta: {
           label: "Kontakt",
-          url: resolve("/[lang=lang]/kontakt", { lang: "de" }),
-          event: "split-tile-contact"
+          url: resolve("/[lang=lang]/kontakt", { lang: "de" })
         }
       }
     ]
@@ -129,8 +125,7 @@ const translations = {
         description: "SwissPlant is the official point of selling of seedings and saplings from AgriPlant Switzerland and Gipmans Netherlands.",
         cta: {
           label: "About us",
-          url: resolve("/[lang=lang]/firma", { lang: "en" }),
-          event: "split-tile-about-us"
+          url: resolve("/[lang=lang]/firma", { lang: "en" })
         }
       },
       {
@@ -146,8 +141,7 @@ const translations = {
         description: "Our production site of AgriPlant AG is located in the Bernese Seeland. The central location allows us to deliver quickly and competently.",
         cta: {
           label: "Our portfolio",
-          url: resolve("/[lang=lang]/angebot", { lang: "en" }),
-          event: "split-tile-portfolio"
+          url: resolve("/[lang=lang]/angebot", { lang: "en" })
         }
       },
       {
@@ -163,8 +157,7 @@ const translations = {
         description: "The company Gipmans from the Netherlands supplies us with warm house and speedy plants as a range extension.",
         cta: {
           label: "Our partners",
-          url: resolve("/[lang=lang]/partner", { lang: "en" }),
-          event: "split-tile-partners"
+          url: resolve("/[lang=lang]/partner", { lang: "en" })
         }
       },
       {
@@ -179,8 +172,7 @@ const translations = {
         description: "We are happy to provide any information and advice. Whether by email, phone or on site.",
         cta: {
           label: "Contact",
-          url: resolve("/[lang=lang]/kontakt", { lang: "en" }),
-          event: "split-tile-contact"
+          url: resolve("/[lang=lang]/kontakt", { lang: "en" })
         }
       }
     ]

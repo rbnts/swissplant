@@ -10,7 +10,6 @@
     cta: {
       label: string;
       url: string;
-      event: string;
     };
   }
 
@@ -41,7 +40,7 @@
   <div class="split-tile-content">
     <h2>{title}</h2>
     <p>{description}</p>
-    <a class="split-tile-cta" data-umami-event={cta.event} href={cta.url}>
+    <a class="split-tile-cta" href={cta.url}>
       {cta.label}
     </a>
   </div>

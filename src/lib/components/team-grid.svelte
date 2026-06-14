@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { kebabCase } from "es-toolkit";
   import type { HTMLImgAttributes } from "svelte/elements";
   import ContactLink from "./contact-link.svelte";
 
@@ -20,10 +19,6 @@
   }
 
   const { emailLabel, phoneLabel, members }: TeamGridProps = $props();
-
-  const makeEvent = (name: string, type: "phone" | "email") => (
-    `team-${type}-${kebabCase(name)}`
-  );
 </script>
 
 <section>
@@ -36,14 +31,12 @@
           <span>{member.position}</span>
           {#if member.contact?.email}
             <ContactLink
-              data-umami-event={makeEvent(member.name, "email")}
               href={`mailto:${member.contact.email}`}
               label={`${emailLabel}${member.name}`}
             />
           {/if}
           {#if member.contact?.phone}
             <ContactLink
-              data-umami-event={makeEvent(member.name, "phone")}
               href={`tel:${member.contact.phone}`}
               label={`${phoneLabel}${member.name}`}
             />
