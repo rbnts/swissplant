@@ -5,14 +5,14 @@
   import { match as isLang } from "$params/lang";
   import Menu from "@lucide/svelte/icons/menu";
   import X from "@lucide/svelte/icons/x";
-  import { throttle } from "es-toolkit";
   import { on } from "svelte/events";
   import Logo from "./logo.svelte";
 
-  let prevScrollY = $state.raw(0);
   let isHidden = $state.raw(false);
   let isOpen = $state.raw(false);
   let navigationRef: HTMLElement;
+  let prevScrollY = 0;
+  let scrollFrame = 0;
 
   const lang = $derived(
     isLang(page.params["lang"]) ? page.params["lang"] : "de"
@@ -77,19 +77,18 @@
     }
   };
 
-  const handleWindowScroll = throttle(() => {
-    const newValue = window.scrollY > prevScrollY && window.scrollY > 100;
-
-    if (isHidden !== newValue) {
-      isHidden = newValue;
+  const handleWindowScroll = () => {
+    scrollFrame ||= requestAnimationFrame(() => {
+      scrollFrame = 0;
+      isHidden = window.scrollY > prevScrollY && window.scrollY > 100;
 
       if (isHidden && isOpen) {
         isOpen = false;
       }
-    }
 
-    prevScrollY = window.scrollY;
-  }, 100);
+      prevScrollY = window.scrollY;
+    });
+  };
 
   $effect(() => {
     const offClick = on(window, "click", handleOutsideClick, { passive: true });
@@ -98,6 +97,7 @@
     return () => {
       offClick();
       offScroll();
+      cancelAnimationFrame(scrollFrame);
     };
   });
 

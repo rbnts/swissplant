@@ -1,8 +1,11 @@
 # folders
-node_modules
-build
-.svelte-kit
+node_modules/
+build/
+.svelte-kit/
 
-# os
+# files
+*.local.*
+
+# mac
 .DS_Store
 ._*
