@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Attachment } from "svelte/attachments";
   import type { HTMLImgAttributes } from "svelte/elements";
+  import { on } from "svelte/events";
   import Logo from "./logo.svelte";
 
   interface Props {
@@ -12,17 +13,40 @@
 
   let visibleIndex = $state.raw(0);
 
-  const startSlider: Attachment = () => {
+  const startSlider: Attachment<HTMLElement> = () => {
     let interval: number | undefined;
 
-    if (images.length > 1) {
+    const start = () => {
+      if (images.length < 2) {
+        return;
+      }
+
       interval = window.setInterval(() => {
         visibleIndex = (visibleIndex + 1) % images.length;
       }, 10_000);
+    };
+
+    const stop = () => {
+      window.clearInterval(interval);
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        stop();
+      } else {
+        start();
+      }
+    };
+
+    if (!document.hidden) {
+      start();
     }
 
+    const off = on(document, "visibilitychange", handleVisibilityChange);
+
     return () => {
-      window.clearInterval(interval);
+      stop();
+      off();
     };
   };
 </script>
@@ -45,10 +69,10 @@
 
   {#each images as image, index (image.src)}
     <img
+      {...image}
       class={["hero-image", { visible: index === visibleIndex }]}
       fetchpriority={index === 0 ? "high" : "low"}
       loading={index > 0 ? "lazy" : null}
-      {...image}
     />
   {/each}
 </header>

@@ -1,13 +1,11 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
   import { page } from "$app/state";
-  import { match as isLang } from "$params/lang";
+  import { getLang } from "$lib/utils/lang";
   import ContactLink from "./contact-link.svelte";
   import Logo from "./logo.svelte";
 
-  const lang = $derived(
-    isLang(page.params["lang"]) ? page.params["lang"] : "de"
-  );
+  const lang = $derived(getLang(page.params["lang"]));
 
   const openingHours = $derived({
     de: "Montag bis Freitag\n07:30–11:45 Uhr\n13:30–17:30 Uhr",
@@ -27,6 +25,11 @@
   const phoneNumber = $derived({
     de: "Anrufen",
     en: "Call"
+  }[lang]);
+
+  const footerNavigationAriaLabel = $derived({
+    de: "Navigation in der Fusszeile",
+    en: "Footer navigation"
   }[lang]);
 
   const navigationItems = [
@@ -118,7 +121,7 @@
     </div>
   </div>
   <hr class="footer-hr" />
-  <nav class="footer-navigation" aria-label={{ de: "Navigation in der Fusszeile", en: "Footer navigation" }[lang]}>
+  <nav class="footer-navigation" aria-label={footerNavigationAriaLabel}>
     <ul class="footer-navigation-list">
       {#each navigationItems as item (item.route)}
         <li class="footer-navigation-item">

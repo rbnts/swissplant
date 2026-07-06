@@ -1,3 +1,1 @@
-export const match = (parameter: unknown): parameter is App.Lang => (
-  parameter === "de" || parameter === "en"
-);
+export { isLang as match } from "$lib/utils/lang";

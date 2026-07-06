@@ -2,7 +2,7 @@
   import { page } from "$app/state";
   import Footer from "$components/footer.svelte";
   import Navigation from "$components/navigation.svelte";
-  import { match as isLang } from "$params/lang";
+  import { getLang, langs } from "$lib/utils/lang";
   import "$styles/base.scss";
   import type { LayoutProps } from "./$types";
 
@@ -12,15 +12,15 @@
     const { meta } = page.data;
     const { url } = page;
     const { params } = page;
-    const lang = isLang(params["lang"]) ? params["lang"] : "de";
+    const lang = getLang(params["lang"]);
 
     const canonical = `https://swissplant.ch${url.pathname}`;
     const alternates = [
       {
-        href: canonical.replace(`/${lang}`, `/de`),
+        href: canonical.replace(`/${lang}`, `/${langs[0]}`),
         hreflang: "x-default"
       },
-      ...["en", "de"].map(item => ({
+      ...langs.map(item => ({
         href: canonical.replace(`/${lang}`, `/${item}`),
         hreflang: item
       }))

@@ -1,8 +1,8 @@
+import { langs } from "$lib/utils/lang";
 import { type RequestHandler, text } from "@sveltejs/kit";
 
 export const GET: RequestHandler = () => {
   const base = "https://swissplant.ch";
-  const langs = new Set<App.Lang>(["de", "en"]);
   const pages = Object.keys(
     import.meta.glob("../**/+page.svelte", {
       eager: true

@@ -4,6 +4,7 @@ import two from "$img/aerials/2.avif";
 import crates from "$img/photoshoot/crates.avif";
 import machine from "$img/photoshoot/machine.avif";
 import tinu from "$img/photoshoot/tinu.avif";
+import { langs } from "$lib/utils/lang";
 import type { EntryGenerator, PageServerLoad } from "./$types";
 
 const translations = {
@@ -181,7 +182,4 @@ const translations = {
 
 export const load: PageServerLoad = ({ params }) => translations[params.lang];
 
-export const entries: EntryGenerator = () => [
-  { lang: "de" },
-  { lang: "en" }
-];
+export const entries: EntryGenerator = () => langs.map(lang => ({ lang }));

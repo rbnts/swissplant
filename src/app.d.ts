@@ -3,13 +3,14 @@ import type SplitTile from "$components/split-tile.svelte";
 import type StructuredText from "$components/structured-text.svelte";
 import type Table from "$components/table.svelte";
 import type TeamGrid from "$components/team-grid.svelte";
+import type { Lang as Language } from "$lib/utils/lang";
 import "@total-typescript/ts-reset";
 import type { ComponentProps } from "svelte";
 
 // https://svelte.dev/docs/kit/types#app.d.ts
 declare global {
   namespace App {
-    type Lang = "de" | "en";
+    type Lang = Language;
     type Translations = Record<Lang, ContentPageData>;
 
     interface ContentPageData {

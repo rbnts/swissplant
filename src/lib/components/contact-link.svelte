@@ -12,16 +12,14 @@
   const { label, href, ...attributes }: Props = $props();
 
   const mounted: Attachment<HTMLAnchorElement> = (element) => {
-    const address = href.split(":").at(1);
+    const address = href.split(":").at(1) ?? "";
 
-    if (address) {
-      element.dataset["label"] = reverse(address);
+    element.dataset["label"] = reverse(address);
 
-      on(element, "click", (event) => {
-        event.preventDefault();
-        document.location.assign(href);
-      });
-    }
+    on(element, "click", (event) => {
+      event.preventDefault();
+      location.assign(href);
+    });
   };
 </script>
 

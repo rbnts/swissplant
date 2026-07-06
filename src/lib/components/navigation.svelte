@@ -2,7 +2,7 @@
   import { afterNavigate } from "$app/navigation";
   import { resolve } from "$app/paths";
   import { page } from "$app/state";
-  import { match as isLang } from "$params/lang";
+  import { getLang } from "$lib/utils/lang";
   import Menu from "@lucide/svelte/icons/menu";
   import X from "@lucide/svelte/icons/x";
   import { on } from "svelte/events";
@@ -14,9 +14,7 @@
   let prevScrollY = 0;
   let scrollFrame = 0;
 
-  const lang = $derived(
-    isLang(page.params["lang"]) ? page.params["lang"] : "de"
-  );
+  const lang = $derived(getLang(page.params["lang"]));
   const route = $derived(page.route.id ?? "/[lang=lang]");
 
   const toggleSrOnlyText = $derived({
