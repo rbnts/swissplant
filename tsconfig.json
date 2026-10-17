@@ -1,11 +1,4 @@
 {
-  "extends": [
-    "robins-tsconfig",
-    "./.svelte-kit/tsconfig.json"
-  ],
-  "exclude": [
-    "node_modules",
-    "build",
-    ".svelte-kit",
-  ]
+  "extends": ["robins-tsconfig", "$app/tsconfig"],
+  "include": ["src", "*"]
 }

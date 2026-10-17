@@ -1,27 +1,23 @@
-import { langs } from "$lib/utils/lang";
-import { type RequestHandler, text } from "@sveltejs/kit";
+import { routes } from "$app/manifest";
+import { resolve } from "$app/paths";
+import { isLangRoute, langs } from "#lib/utils/lang.ts";
+import type { RequestHandler } from "./$types";
 
-export const GET: RequestHandler = () => {
-  const base = "https://swissplant.ch";
-  const pages = Object.keys(
-    import.meta.glob("../**/+page.svelte", {
-      eager: true
-    })
-  )
-    .filter(path => path.startsWith("../[lang=lang]/"))
-    .map(path => path
-      .replace("../[lang=lang]", "")
-      .replace("/+page.svelte", "")
-    );
+export const GET: RequestHandler = ({ url }) => {
+  const pages = routes
+    .filter(route => route.page)
+    .map(route => route.id)
+    .filter(isLangRoute);
 
   let sitemap = "";
+
   for (const lang of langs) {
     for (const page of pages) {
-      sitemap += `${base}/${lang}${page}\n`;
+      sitemap += `${new URL(resolve(page, { lang }), url).href}\n`;
     }
   }
 
-  return text(sitemap);
+  return new Response(sitemap);
 };
 
 export const prerender = true;

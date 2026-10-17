@@ -23,7 +23,7 @@
     iframe: ComponentProps<typeof Iframe>;
   }
 
-  export type Props = ImageTileProps | IframeTileProps;
+  type Props = ImageTileProps | IframeTileProps;
 
   const { even, title, description, cta, ...variant }: Props = $props();
 </script>
@@ -40,6 +40,7 @@
   <div class="split-tile-content">
     <h2>{title}</h2>
     <p>{description}</p>
+    <!-- eslint-disable-next-line svelte/no-navigation-without-resolve -- already resolved in the load function -->
     <a class="split-tile-cta" href={cta.url}>
       {cta.label}
     </a>
@@ -47,11 +48,15 @@
 </section>
 
 <style lang="scss">
-  @use "$styles/media-queries";
+  @use "#lib/styles/media-queries" as media-queries;
 
   .split-tile {
     display: grid;
     place-items: center;
+
+    @include media-queries.above-tablet {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
     > * {
       min-width: 0;
@@ -59,12 +64,8 @@
 
     &:not(:last-child) {
       border-bottom: 2px solid var(--color-black-05);
-    }
 
-    @include media-queries.above-tablet {
-      grid-template-columns: 1fr 1fr;
-
-      &:not(:last-child) {
+      @include media-queries.above-tablet {
         border-bottom: 0;
       }
     }
@@ -120,9 +121,16 @@
       color 0.3s ease-in-out,
       background-color 0.3s ease-in-out;
 
-    &:is(:hover, :focus-visible) {
+    &:focus-visible {
       color: var(--color-white);
       background-color: var(--color-brand);
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        color: var(--color-white);
+        background-color: var(--color-brand);
+      }
     }
   }
 </style>

@@ -3,17 +3,14 @@
 @forward "utils";
 @forward "reset";
 
-#app {
-  display: contents;
-}
-
 body {
   font-family: var(--font-family);
   font-size: var(--type-18);
+  font-kerning: normal;
   line-height: var(--line-height);
   color: var(--color-text);
+  /* stylelint-disable-next-line plugin/use-baseline -- progressive enhancement */
   text-wrap: pretty;
-  text-rendering: optimizelegibility;
 }
 
 h1 {
@@ -46,11 +43,4 @@ hr {
   footer & {
     background-color: var(--color-white-05);
   }
-}
-
-a:has(.icon) {
-  display: inline-grid;
-  grid-template-columns: auto auto;
-  gap: var(--space-4);
-  place-items: center;
 }

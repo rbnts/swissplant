@@ -35,7 +35,7 @@
           padding: var(--space-8);
 
           &:first-child {
-            font-weight: bold;
+            font-weight: 700;
             hyphens: auto;
           }
         }

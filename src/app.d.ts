@@ -1,9 +1,9 @@
-import type Hero from "$components/hero.svelte";
-import type SplitTile from "$components/split-tile.svelte";
-import type StructuredText from "$components/structured-text.svelte";
-import type Table from "$components/table.svelte";
-import type TeamGrid from "$components/team-grid.svelte";
-import type { Lang as Language } from "$lib/utils/lang";
+import type Hero from "#lib/components/hero.svelte";
+import type SplitTile from "#lib/components/split-tile.svelte";
+import type StructuredText from "#lib/components/structured-text.svelte";
+import type Table from "#lib/components/table.svelte";
+import type TeamGrid from "#lib/components/team-grid.svelte";
+import type { Lang as Language, LangRoute as LanguageRoute } from "#lib/utils/lang.ts";
 import "@total-typescript/ts-reset";
 import type { ComponentProps } from "svelte";
 
@@ -12,6 +12,7 @@ declare global {
   namespace App {
     type Lang = Language;
     type Translations = Record<Lang, ContentPageData>;
+    type NavigationItem = Record<Lang, string> & { route: LanguageRoute };
 
     interface ContentPageData {
       meta: {
@@ -21,7 +22,7 @@ declare global {
       heading: string;
       noPositions?: string;
       hero: ComponentProps<typeof Hero>;
-      splitTiles?: ComponentProps<typeof SplitTile>[];
+      splitTiles?: Array<ComponentProps<typeof SplitTile>>;
       teamGrid?: ComponentProps<typeof TeamGrid>;
       table?: ComponentProps<typeof Table>;
       structuredText?: ComponentProps<typeof StructuredText>;

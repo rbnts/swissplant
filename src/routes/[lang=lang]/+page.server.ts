@@ -1,10 +1,10 @@
 import { resolve } from "$app/paths";
-import one from "$img/aerials/1.avif";
-import two from "$img/aerials/2.avif";
-import crates from "$img/photoshoot/crates.avif";
-import machine from "$img/photoshoot/machine.avif";
-import tinu from "$img/photoshoot/tinu.avif";
-import { langs } from "$lib/utils/lang";
+import one from "#lib/img/aerials/1.avif";
+import two from "#lib/img/aerials/2.avif";
+import crates from "#lib/img/photoshoot/crates.avif";
+import machine from "#lib/img/photoshoot/machine.avif";
+import tinu from "#lib/img/photoshoot/tinu.avif";
+import { langs } from "#lib/utils/lang.ts";
 import type { EntryGenerator, PageServerLoad } from "./$types";
 
 const translations = {
@@ -33,7 +33,7 @@ const translations = {
         even: false,
         image: {
           src: tinu,
-          alt: "Martin Löffel, Gründer der SwissPlant AG.",
+          alt: "Martin Löffel, Gründer der SwissPlant GmbH.",
           loading: "lazy",
           fetchpriority: "low"
         },

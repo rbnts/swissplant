@@ -11,7 +11,7 @@
 
   const { images, big }: Props = $props();
 
-  let visibleIndex = $state.raw(0);
+  let visibleIndex = $state(0);
 
   const startSlider: Attachment<HTMLElement> = () => {
     let interval: number | undefined;
@@ -50,15 +50,6 @@
     };
   };
 </script>
-
-<svelte:head>
-  <link
-    as="image"
-    fetchpriority="high"
-    href={images.at(0)?.src}
-    rel="preload"
-  />
-</svelte:head>
 
 <header class={["hero", { big }]} {@attach startSlider}>
   {#if big}

@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { HTMLTableAttributes } from "svelte/elements";
 
-  export interface TableProps extends HTMLTableAttributes {
+  interface TableProps extends HTMLTableAttributes {
     rows: string[][];
   }
 

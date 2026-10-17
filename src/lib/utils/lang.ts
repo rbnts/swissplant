@@ -1,7 +1,9 @@
+import type { RouteId } from "$app/types";
+
 export const langs = ["de", "en"] as const;
 export type Lang = (typeof langs)[number];
 
-export const isLang = (value: unknown): value is Lang =>
-  typeof value === "string" && langs.includes(value);
+export type LangRoute = Extract<RouteId, `/[lang=lang]${string}`>;
 
-export const getLang = (value: unknown): Lang => (isLang(value) ? value : "de");
+export const isLangRoute = (id: RouteId | null): id is LangRoute =>
+  id?.startsWith("/[lang=lang]") ?? false;

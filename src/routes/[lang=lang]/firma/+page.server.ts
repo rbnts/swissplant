@@ -1,4 +1,4 @@
-import aerial from "$img/aerials/2.avif";
+import aerial from "#lib/img/aerials/2.avif";
 import { render } from "datocms-structured-text-to-html-string";
 import type { PageServerLoad } from "./$types";
 

@@ -1,8 +1,8 @@
 <script lang="ts" module>
-  import agriplantBare from "$svg/agriplant-bare.svg?raw";
-  import agriplant from "$svg/agriplant.svg?raw";
-  import swissplantBare from "$svg/swissplant-bare.svg?raw";
-  import swissplant from "$svg/swissplant.svg?raw";
+  import agriplantBare from "#lib/svg/agriplant-bare.svg?raw";
+  import agriplant from "#lib/svg/agriplant.svg?raw";
+  import swissplantBare from "#lib/svg/swissplant-bare.svg?raw";
+  import swissplant from "#lib/svg/swissplant.svg?raw";
 
   const svgMap = { swissplantBare, agriplantBare, swissplant, agriplant } as const;
 

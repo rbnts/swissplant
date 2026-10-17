@@ -1,6 +1,5 @@
 <script lang="ts">
   import type { HTMLImgAttributes } from "svelte/elements";
-  import ContactLink from "./contact-link.svelte";
 
   interface Member {
     name: string;
@@ -13,12 +12,10 @@
   }
 
   interface TeamGridProps {
-    emailLabel: string;
-    phoneLabel: string;
     members: Member[];
   }
 
-  const { emailLabel, phoneLabel, members }: TeamGridProps = $props();
+  const { members }: TeamGridProps = $props();
 </script>
 
 <section>
@@ -29,17 +26,11 @@
         <div class="team-grid-item-info">
           <span class="team-grid-item-name">{member.name}</span>
           <span>{member.position}</span>
-          {#if member.contact?.email}
-            <ContactLink
-              href={`mailto:${member.contact.email}`}
-              label={`${emailLabel}${member.name}`}
-            />
-          {/if}
-          {#if member.contact?.phone}
-            <ContactLink
-              href={`tel:${member.contact.phone}`}
-              label={`${phoneLabel}${member.name}`}
-            />
+          {#if member.contact}
+            <a href="mailto:{member.contact.email}">{member.contact.email}</a>
+            <a href="tel:{member.contact.phone.replaceAll(" ", "")}">
+              {member.contact.phone}
+            </a>
           {/if}
         </div>
       </li>
@@ -53,7 +44,7 @@
     grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
     gap: var(--space-16);
     padding-left: 0;
-    list-style: none;
+    list-style-type: "";
   }
 
   .team-grid-item {
@@ -66,7 +57,7 @@
   }
 
   .team-grid-item-name {
-    font-weight: bold;
+    font-weight: 700;
   }
 
   .team-grid-item-image {

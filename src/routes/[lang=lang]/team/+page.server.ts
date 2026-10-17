@@ -1,15 +1,15 @@
-import barbara from "$img/employees/barbara.avif";
-import hansPeter from "$img/employees/hans-peter.avif";
-import ivan from "$img/employees/ivan.avif";
-import mariusz from "$img/employees/mariusz.avif";
-import markus from "$img/employees/markus.avif";
-import martin from "$img/employees/martin.avif";
-import miguel from "$img/employees/miguel.avif";
-import muhamet from "$img/employees/muhamet.avif";
-import sandro from "$img/employees/sandro.avif";
-import shpend from "$img/employees/shpend.avif";
-import telja from "$img/employees/telja.avif";
-import tinu from "$img/photoshoot/tinu.avif";
+import barbara from "#lib/img/employees/barbara.avif";
+import hansPeter from "#lib/img/employees/hans-peter.avif";
+import ivan from "#lib/img/employees/ivan.avif";
+import mariusz from "#lib/img/employees/mariusz.avif";
+import markus from "#lib/img/employees/markus.avif";
+import martin from "#lib/img/employees/martin.avif";
+import miguel from "#lib/img/employees/miguel.avif";
+import muhamet from "#lib/img/employees/muhamet.avif";
+import sandro from "#lib/img/employees/sandro.avif";
+import shpend from "#lib/img/employees/shpend.avif";
+import telja from "#lib/img/employees/telja.avif";
+import tinu from "#lib/img/photoshoot/tinu.avif";
 import type { PageServerLoad } from "./$types";
 
 const translations = {
@@ -28,15 +28,13 @@ const translations = {
       ]
     },
     teamGrid: {
-      emailLabel: "E-Mail an: ",
-      phoneLabel: "Anrufen: ",
       members: [
         {
           name: "Martin Löffel",
           position: "Geschäftsführer",
           image: {
             src: martin,
-            alt: "Martin Loeffel",
+            alt: "",
             loading: "lazy",
             fetchpriority: "low"
           },
@@ -50,7 +48,7 @@ const translations = {
           position: "Stv. Geschäftsführer",
           image: {
             src: sandro,
-            alt: "Sandro",
+            alt: "",
             loading: "lazy",
             fetchpriority: "low"
           },
@@ -64,7 +62,7 @@ const translations = {
           position: "Empfang & Administration",
           image: {
             src: telja,
-            alt: "Telja",
+            alt: "",
             loading: "lazy",
             fetchpriority: "low"
           },
@@ -78,7 +76,7 @@ const translations = {
           position: "Leiter Gewächshaus",
           image: {
             src: ivan,
-            alt: "Ivan",
+            alt: "",
             loading: "lazy",
             fetchpriority: "low"
           }
@@ -88,7 +86,7 @@ const translations = {
           position: "Leiter Produktion",
           image: {
             src: shpend,
-            alt: "Shpend",
+            alt: "",
             loading: "lazy",
             fetchpriority: "low"
           }
@@ -98,7 +96,7 @@ const translations = {
           position: "Transport",
           image: {
             src: hansPeter,
-            alt: "Hans Peter",
+            alt: "",
             loading: "lazy",
             fetchpriority: "low"
           }
@@ -108,7 +106,7 @@ const translations = {
           position: "Transport",
           image: {
             src: mariusz,
-            alt: "Mariusz",
+            alt: "",
             loading: "lazy",
             fetchpriority: "low"
           }
@@ -118,7 +116,7 @@ const translations = {
           position: "Produktion",
           image: {
             src: muhamet,
-            alt: "Muhamet",
+            alt: "",
             loading: "lazy",
             fetchpriority: "low"
           }
@@ -128,7 +126,7 @@ const translations = {
           position: "Transport",
           image: {
             src: barbara,
-            alt: "Barbara",
+            alt: "",
             loading: "lazy",
             fetchpriority: "low"
           }
@@ -138,7 +136,7 @@ const translations = {
           position: "Maschinenführer",
           image: {
             src: markus,
-            alt: "Markus",
+            alt: "",
             loading: "lazy",
             fetchpriority: "low"
           }
@@ -148,7 +146,7 @@ const translations = {
           position: "Maschinenführer",
           image: {
             src: miguel,
-            alt: "Miguel",
+            alt: "",
             loading: "lazy",
             fetchpriority: "low"
           }
@@ -166,20 +164,18 @@ const translations = {
       images: [
         {
           src: tinu,
-          alt: "SwissPlant from above"
+          alt: "Martin Löffel, founder of SwissPlant GmbH."
         }
       ]
     },
     teamGrid: {
-      emailLabel: "Write an email to: ",
-      phoneLabel: "Call: ",
       members: [
         {
           name: "Martin Löffel",
           position: "CEO & Sales",
           image: {
             src: martin,
-            alt: "Martin Loeffel",
+            alt: "",
             loading: "lazy",
             fetchpriority: "low"
           },
@@ -193,7 +189,7 @@ const translations = {
           position: "Deputy CEO & Sales",
           image: {
             src: sandro,
-            alt: "Sandro",
+            alt: "",
             loading: "lazy",
             fetchpriority: "low"
           },
@@ -207,7 +203,7 @@ const translations = {
           position: "Reception & Administration",
           image: {
             src: telja,
-            alt: "Telja",
+            alt: "",
             loading: "lazy",
             fetchpriority: "low"
           },
@@ -221,7 +217,7 @@ const translations = {
           position: "Greenhouse Manager",
           image: {
             src: ivan,
-            alt: "Ivan",
+            alt: "",
             loading: "lazy",
             fetchpriority: "low"
           }
@@ -231,7 +227,7 @@ const translations = {
           position: "Production Manager",
           image: {
             src: shpend,
-            alt: "Shpend",
+            alt: "",
             loading: "lazy",
             fetchpriority: "low"
           }
@@ -241,7 +237,7 @@ const translations = {
           position: "Transport",
           image: {
             src: hansPeter,
-            alt: "Hans Peter",
+            alt: "",
             loading: "lazy",
             fetchpriority: "low"
           }
@@ -251,7 +247,7 @@ const translations = {
           position: "Transport",
           image: {
             src: mariusz,
-            alt: "Mariusz",
+            alt: "",
             loading: "lazy",
             fetchpriority: "low"
           }
@@ -261,7 +257,7 @@ const translations = {
           position: "Production",
           image: {
             src: muhamet,
-            alt: "Muhamet",
+            alt: "",
             loading: "lazy",
             fetchpriority: "low"
           }
@@ -271,7 +267,7 @@ const translations = {
           position: "Transport",
           image: {
             src: barbara,
-            alt: "Barbara",
+            alt: "",
             loading: "lazy",
             fetchpriority: "low"
           }
@@ -281,7 +277,7 @@ const translations = {
           position: "Machine Operator",
           image: {
             src: markus,
-            alt: "Markus",
+            alt: "",
             loading: "lazy",
             fetchpriority: "low"
           }
@@ -291,7 +287,7 @@ const translations = {
           position: "Machine Operator",
           image: {
             src: miguel,
-            alt: "Miguel",
+            alt: "",
             loading: "lazy",
             fetchpriority: "low"
           }

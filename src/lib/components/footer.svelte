@@ -1,30 +1,17 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
-  import { page } from "$app/state";
-  import { getLang } from "$lib/utils/lang";
-  import ContactLink from "./contact-link.svelte";
   import Logo from "./logo.svelte";
 
-  const lang = $derived(getLang(page.params["lang"]));
+  interface Props {
+    lang: App.Lang;
+  }
+
+  const { lang }: Props = $props();
+  const year = new Date().getFullYear();
 
   const openingHours = $derived({
     de: "Montag bis Freitag\n07:30–11:45 Uhr\n13:30–17:30 Uhr",
     en: "Mondays to Fridays\n07:30–11:45\n13:30–17:30"
-  }[lang]);
-
-  const swissPlantEmail = $derived({
-    de: "E-Mail an SwissPlant schreiben",
-    en: "Write an email to SwissPlant"
-  }[lang]);
-
-  const agriPlantEmail = $derived({
-    de: "E-Mail an AgriPlant schreiben",
-    en: "Write an email to AgriPlant"
-  }[lang]);
-
-  const phoneNumber = $derived({
-    de: "Anrufen",
-    en: "Call"
   }[lang]);
 
   const footerNavigationAriaLabel = $derived({
@@ -32,7 +19,7 @@
     en: "Footer navigation"
   }[lang]);
 
-  const navigationItems = [
+  const navigationItems: App.NavigationItem[] = [
     {
       de: "Home",
       en: "Home",
@@ -97,15 +84,9 @@
         CH-3225 Müntschemier
       </p>
       <p class="footer-text">
-        <ContactLink
-          href="mailto:info@swissplant.ch"
-          label={swissPlantEmail}
-        />
+        <a href="mailto:info@swissplant.ch">info@swissplant.ch</a>
         <br />
-        <ContactLink
-          href="mailto:info@agriplant.ch"
-          label={agriPlantEmail}
-        />
+        <a href="mailto:info@agriplant.ch">info@agriplant.ch</a>
       </p>
     </div>
     <div>
@@ -113,10 +94,7 @@
         {openingHours}
       </p>
       <p class="footer-text">
-        <ContactLink
-          href="tel:+41323135210"
-          label={phoneNumber}
-        />
+        <a href="tel:+41323135210">+41 32 313 52 10</a>
       </p>
     </div>
   </div>
@@ -134,13 +112,13 @@
   </nav>
   <div class="footer-content">
     <p class="footer-text footer-copyright">
-      &copy; SwissPlant GmbH &amp; AgriPlant AG, 2026
+      &copy; SwissPlant GmbH &amp; AgriPlant AG, {year}
     </p>
   </div>
 </footer>
 
 <style lang="scss">
-  @use "$styles/media-queries";
+  @use "#lib/styles/media-queries" as media-queries;
 
   .footer {
     padding: var(--space-64);
@@ -165,11 +143,11 @@
     place-items: center start;
 
     @include media-queries.above-phone {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     @include media-queries.above-tablet {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 
@@ -178,6 +156,7 @@
   }
 
   .footer-opening-hours {
+    font-variant-numeric: tabular-nums;
     white-space: pre-line;
   }
 
@@ -200,7 +179,7 @@
     padding: 0;
     margin: 0;
     text-align: center;
-    list-style: none;
+    list-style-type: "";
   }
 
   .footer-navigation-item {

@@ -9,15 +9,3 @@
     @content;
   }
 }
-
-@mixin above-desktop {
-  @media (width > 1024px) {
-    @content;
-  }
-}
-
-@mixin above-wide {
-  @media (width > 1280px) {
-    @content;
-  }
-}

@@ -2,20 +2,26 @@
   import { afterNavigate } from "$app/navigation";
   import { resolve } from "$app/paths";
   import { page } from "$app/state";
-  import { getLang } from "$lib/utils/lang";
+  import { isLangRoute } from "#lib/utils/lang.ts";
   import Menu from "@lucide/svelte/icons/menu";
   import X from "@lucide/svelte/icons/x";
-  import { on } from "svelte/events";
   import Logo from "./logo.svelte";
 
-  let isHidden = $state.raw(false);
-  let isOpen = $state.raw(false);
+  interface Props {
+    lang: App.Lang;
+  }
+
+  const { lang }: Props = $props();
+
+  let isHidden = $state(false);
+  let isOpen = $state(false);
   let navigationRef: HTMLElement;
   let prevScrollY = 0;
   let scrollFrame = 0;
 
-  const lang = $derived(getLang(page.params["lang"]));
-  const route = $derived(page.route.id ?? "/[lang=lang]");
+  const route = $derived(
+    isLangRoute(page.route.id) ? page.route.id : "/[lang=lang]"
+  );
 
   const toggleSrOnlyText = $derived({
     de: isOpen ? "Das Navigationsmenü zuklappen." : "Das Navigationsmenü aufklappen.",
@@ -32,7 +38,7 @@
     en: "Main navigation"
   }[lang]);
 
-  const navigationItems = [
+  const navigationItems: App.NavigationItem[] = [
     {
       de: "Firma",
       en: "Company",
@@ -70,7 +76,7 @@
   };
 
   const handleOutsideClick = ({ target }: MouseEvent) => {
-    if (isOpen && target instanceof HTMLElement && !navigationRef.contains(target)) {
+    if (isOpen && target instanceof Element && !navigationRef.contains(target)) {
       isOpen = false;
     }
   };
@@ -88,21 +94,12 @@
     });
   };
 
-  $effect(() => {
-    const offClick = on(window, "click", handleOutsideClick, { passive: true });
-    const offScroll = on(window, "scroll", handleWindowScroll, { passive: true });
-
-    return () => {
-      offClick();
-      offScroll();
-      cancelAnimationFrame(scrollFrame);
-    };
-  });
-
   afterNavigate(() => {
     isOpen = false;
   });
 </script>
+
+<svelte:window onclick={handleOutsideClick} onscroll={handleWindowScroll} />
 
 <nav
   bind:this={navigationRef}
@@ -132,11 +129,7 @@
       <div class="navigation-bar-toggle-icon-x"><X /></div>
     </button>
   </div>
-  <div
-    id="navigation-expando"
-    class="navigation-expando"
-    aria-hidden={!isOpen}
-  >
+  <div id="navigation-expando" class="navigation-expando">
     <ul class="navigation-list">
       {#each navigationItems as item (item.route)}
         <li class="navigation-item">
@@ -151,13 +144,13 @@
         <a
           class="navigation-language-toggle"
           class:active={lang === "de"}
-          data-sveltekit-noscroll
+          data-sveltekit-reset="false"
           href={resolve(route, { lang: "de" })}
         >DE</a>
         <a
           class="navigation-language-toggle"
           class:active={lang === "en"}
-          data-sveltekit-noscroll
+          data-sveltekit-reset="false"
           href={resolve(route, { lang: "en" })}
         >EN</a>
       </li>
@@ -177,9 +170,12 @@
     border-radius: var(--space-16);
     box-shadow: 0 var(--space-4) var(--space-8) var(--color-black-05);
     backdrop-filter: blur(var(--space-8));
-    transition:
-      scale 0.3s ease-in-out,
-      translate 0.3s ease-in-out;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition:
+        scale 0.3s ease-in-out,
+        translate 0.3s ease-in-out;
+    }
 
     &.hidden {
       scale: 0.9;
@@ -195,11 +191,12 @@
   .navigation-list {
     padding: 0;
     margin: 0;
-    list-style: none;
+    list-style-type: "";
   }
 
   .navigation-bar {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     padding: var(--space-32);
   }
@@ -224,7 +221,10 @@
     display: grid;
     grid-template-rows: 0fr;
     contain: content;
-    transition: grid-template-rows 0.3s ease-in-out;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: grid-template-rows 0.3s ease-in-out;
+    }
 
     .open & {
       grid-template-rows: 1fr;
@@ -236,9 +236,12 @@
     grid-area: all;
     width: var(--space-24);
     height: var(--space-24);
-    transition:
-      scale 0.3s ease-in-out,
-      opacity 0.3s ease-in-out;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition:
+        scale 0.3s ease-in-out,
+        opacity 0.3s ease-in-out;
+    }
   }
 
   .open .navigation-bar-toggle-icon-menu {
@@ -259,9 +262,12 @@
   .navigation-list {
     display: grid;
     visibility: hidden;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     overflow: hidden;
-    transition: visibility 0.3s;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: visibility 0.3s;
+    }
 
     .open & {
       visibility: unset;

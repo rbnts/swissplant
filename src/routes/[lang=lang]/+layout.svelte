@@ -1,27 +1,26 @@
 <script lang="ts">
   import { page } from "$app/state";
-  import Footer from "$components/footer.svelte";
-  import Navigation from "$components/navigation.svelte";
-  import { getLang, langs } from "$lib/utils/lang";
-  import "$styles/base.scss";
+  import Footer from "#lib/components/footer.svelte";
+  import Navigation from "#lib/components/navigation.svelte";
+  import { langs } from "#lib/utils/lang.ts";
+  import "#lib/styles/base.scss";
   import type { LayoutProps } from "./$types";
 
-  const { children }: LayoutProps = $props();
+  const { children, params }: LayoutProps = $props();
 
   const pageMeta = $derived.by(() => {
     const { meta } = page.data;
     const { url } = page;
-    const { params } = page;
-    const lang = getLang(params["lang"]);
+    const { lang } = params;
 
     const canonical = `https://swissplant.ch${url.pathname}`;
     const alternates = [
       {
-        href: canonical.replace(`/${lang}`, `/${langs[0]}`),
+        href: canonical.replace(`/${lang}`, () => `/${langs[0]}`),
         hreflang: "x-default"
       },
       ...langs.map(item => ({
-        href: canonical.replace(`/${lang}`, `/${item}`),
+        href: canonical.replace(`/${lang}`, () => `/${item}`),
         hreflang: item
       }))
     ];
@@ -44,6 +43,6 @@
   {/each}
 </svelte:head>
 
-<Navigation />
+<Navigation lang={params.lang} />
 <main>{@render children()}</main>
-<Footer />
+<Footer lang={params.lang} />

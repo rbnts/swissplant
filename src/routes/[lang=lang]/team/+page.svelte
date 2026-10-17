@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Content from "$components/content.svelte";
-  import Hero from "$components/hero.svelte";
-  import TeamGrid from "$components/team-grid.svelte";
+  import Content from "#lib/components/content.svelte";
+  import Hero from "#lib/components/hero.svelte";
+  import TeamGrid from "#lib/components/team-grid.svelte";
   import type { PageProps } from "./$types";
   const { data }: PageProps = $props();
 </script>

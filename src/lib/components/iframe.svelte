@@ -6,13 +6,8 @@
     title: string;
   }
 
-  const { ...attributes }: Props = $props();
-  const origin = $derived(new URL(attributes.src).origin);
+  const attributes: Props = $props();
 </script>
-
-<svelte:head>
-  <link href={origin} rel="preconnect" />
-</svelte:head>
 
 <iframe {...attributes}></iframe>
 

@@ -1,4 +1,4 @@
-import machine from "$img/photoshoot/machine.avif";
+import machine from "#lib/img/photoshoot/machine.avif";
 import { render } from "datocms-structured-text-to-html-string";
 import type { PageServerLoad } from "./$types";
 
