@@ -40,7 +40,7 @@
   <div class="split-tile-content">
     <h2>{title}</h2>
     <p>{description}</p>
-    <!-- eslint-disable-next-line svelte/no-navigation-without-resolve -- already resolved in the load function -->
+    <!-- eslint-disable-next-line svelte/no-navigation-without-resolve -- already resolved by the page -->
     <a class="split-tile-cta" href={cta.url}>
       {cta.label}
     </a>

@@ -1,8 +1,67 @@
+<script lang="ts" module>
+  import { type LangRoute, isLangRoute } from "#lib/utils/lang.ts";
+
+  interface NavigationItem extends Record<App.Lang, string> {
+    route: LangRoute;
+    footerOnly?: true;
+  }
+
+  export const navigationItems: NavigationItem[] = [
+    {
+      de: "Home",
+      en: "Home",
+      route: "/[lang=lang]",
+      footerOnly: true
+    },
+    {
+      de: "Firma",
+      en: "Company",
+      route: "/[lang=lang]/firma"
+    },
+    {
+      de: "Team",
+      en: "Team",
+      route: "/[lang=lang]/team"
+    },
+    {
+      de: "Angebot",
+      en: "Portfolio",
+      route: "/[lang=lang]/angebot"
+    },
+    {
+      de: "Partner",
+      en: "Partners",
+      route: "/[lang=lang]/partner"
+    },
+    {
+      de: "Kontakt",
+      en: "Contact",
+      route: "/[lang=lang]/kontakt"
+    },
+    {
+      de: "Impressum",
+      en: "Imprint",
+      route: "/[lang=lang]/impressum",
+      footerOnly: true
+    },
+    {
+      de: "Datenschutz",
+      en: "Privacy",
+      route: "/[lang=lang]/datenschutz",
+      footerOnly: true
+    },
+    {
+      de: "Jobs",
+      en: "Jobs",
+      route: "/[lang=lang]/jobs"
+    }
+  ];
+</script>
+
 <script lang="ts">
   import { afterNavigate } from "$app/navigation";
   import { resolve } from "$app/paths";
   import { page } from "$app/state";
-  import { isLangRoute } from "#lib/utils/lang.ts";
   import Menu from "@lucide/svelte/icons/menu";
   import X from "@lucide/svelte/icons/x";
   import Logo from "./logo.svelte";
@@ -38,38 +97,7 @@
     en: "Main navigation"
   }[lang]);
 
-  const navigationItems: App.NavigationItem[] = [
-    {
-      de: "Firma",
-      en: "Company",
-      route: "/[lang=lang]/firma"
-    },
-    {
-      de: "Team",
-      en: "Team",
-      route: "/[lang=lang]/team"
-    },
-    {
-      de: "Angebot",
-      en: "Portfolio",
-      route: "/[lang=lang]/angebot"
-    },
-    {
-      de: "Partner",
-      en: "Partners",
-      route: "/[lang=lang]/partner"
-    },
-    {
-      de: "Kontakt",
-      en: "Contact",
-      route: "/[lang=lang]/kontakt"
-    },
-    {
-      de: "Jobs",
-      en: "Jobs",
-      route: "/[lang=lang]/jobs"
-    }
-  ];
+  const mainNavigationItems = navigationItems.filter(item => !item.footerOnly);
 
   const toggle = () => {
     isOpen = !isOpen;
@@ -131,7 +159,7 @@
   </div>
   <div id="navigation-expando" class="navigation-expando">
     <ul class="navigation-list">
-      {#each navigationItems as item (item.route)}
+      {#each mainNavigationItems as item (item.route)}
         <li class="navigation-item">
           <a
             class="navigation-link"

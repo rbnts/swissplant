@@ -1,6 +1,7 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
   import Logo from "./logo.svelte";
+  import { navigationItems } from "./navigation.svelte";
 
   interface Props {
     lang: App.Lang;
@@ -18,54 +19,6 @@
     de: "Navigation in der Fusszeile",
     en: "Footer navigation"
   }[lang]);
-
-  const navigationItems: App.NavigationItem[] = [
-    {
-      de: "Home",
-      en: "Home",
-      route: "/[lang=lang]"
-    },
-    {
-      de: "Firma",
-      en: "Company",
-      route: "/[lang=lang]/firma"
-    },
-    {
-      de: "Team",
-      en: "Team",
-      route: "/[lang=lang]/team"
-    },
-    {
-      de: "Angebot",
-      en: "Portfolio",
-      route: "/[lang=lang]/angebot"
-    },
-    {
-      de: "Partner",
-      en: "Partners",
-      route: "/[lang=lang]/partner"
-    },
-    {
-      de: "Kontakt",
-      en: "Contact",
-      route: "/[lang=lang]/kontakt"
-    },
-    {
-      de: "Impressum",
-      en: "Imprint",
-      route: "/[lang=lang]/impressum"
-    },
-    {
-      de: "Datenschutz",
-      en: "Privacy",
-      route: "/[lang=lang]/datenschutz"
-    },
-    {
-      de: "Jobs",
-      en: "Jobs",
-      route: "/[lang=lang]/jobs"
-    }
-  ];
 </script>
 
 <footer class="footer">

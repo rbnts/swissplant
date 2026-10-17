@@ -1,45 +1,31 @@
 <script lang="ts">
+  import { resolve } from "$app/paths";
   import { page } from "$app/state";
   import Footer from "#lib/components/footer.svelte";
   import Navigation from "#lib/components/navigation.svelte";
-  import { langs } from "#lib/utils/lang.ts";
+  import { isLangRoute, langs } from "#lib/utils/lang.ts";
   import "#lib/styles/base.scss";
   import type { LayoutProps } from "./$types";
 
   const { children, params }: LayoutProps = $props();
 
-  const pageMeta = $derived.by(() => {
-    const { meta } = page.data;
-    const { url } = page;
-    const { lang } = params;
+  const route = $derived(
+    isLangRoute(page.route.id) ? page.route.id : "/[lang=lang]"
+  );
 
-    const canonical = `https://swissplant.ch${url.pathname}`;
-    const alternates = [
-      {
-        href: canonical.replace(`/${lang}`, () => `/${langs[0]}`),
-        hreflang: "x-default"
-      },
-      ...langs.map(item => ({
-        href: canonical.replace(`/${lang}`, () => `/${item}`),
-        hreflang: item
-      }))
-    ];
-
-    return { ...meta, lang, canonical, alternates };
-  });
+  const absoluteHref = (lang: App.Lang) =>
+    new URL(resolve(route, { lang }), page.url.href).href;
 
   $effect(() => {
-    document.documentElement.lang = pageMeta.lang;
+    document.documentElement.lang = params.lang;
   });
 </script>
 
 <svelte:head>
-  <meta name="description" content={pageMeta.description} />
-  <title>{pageMeta.title}</title>
-
-  <link href={pageMeta.canonical} rel="canonical" />
-  {#each pageMeta.alternates as { href, hreflang } (hreflang)}
-    <link {href} {hreflang} rel="alternate" />
+  <link href={absoluteHref(params.lang)} rel="canonical" />
+  <link href={absoluteHref(langs[0])} hreflang="x-default" rel="alternate" />
+  {#each langs as lang (lang)}
+    <link href={absoluteHref(lang)} hreflang={lang} rel="alternate" />
   {/each}
 </svelte:head>
 
