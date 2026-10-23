@@ -38,9 +38,9 @@
         CH-3225 Müntschemier
       </p>
       <p class="footer-text">
-        <ContactLink kind="email" parts={["info", "swissplant.ch"]} />
+        <ContactLink kind="email" value="aW5mb0Bzd2lzc3BsYW50LmNo" />
         <br />
-        <ContactLink kind="email" parts={["info", "agriplant.ch"]} />
+        <ContactLink kind="email" value="aW5mb0BhZ3JpcGxhbnQuY2g=" />
       </p>
     </div>
     <div>
@@ -48,7 +48,7 @@
         {openingHours}
       </p>
       <p class="footer-text">
-        <ContactLink kind="phone" parts={["+41", "32", "313", "52", "10"]} />
+        <ContactLink kind="phone" value="KzQxIDMyIDMxMyA1MiAxMA==" />
       </p>
     </div>
   </div>

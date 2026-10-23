@@ -3,10 +3,10 @@
 
   interface Props {
     kind: "email" | "phone";
-    parts: string[];
+    value: string;
   }
 
-  const { kind, parts }: Props = $props();
+  const { kind, value }: Props = $props();
 
   let mounted = $state(false);
 
@@ -14,7 +14,9 @@
     mounted = true;
   });
 
-  const [user, domain] = $derived(parts);
+  const decoded = $derived(atob(value));
+  const [user, domain] = $derived(decoded.split("@"));
+  const parts = $derived(decoded.split(" "));
 </script>
 
 {#if mounted}

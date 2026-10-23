@@ -20,7 +20,7 @@
     CH-3225 Müntschemier
   </p>
   <p>
-    <ContactLink kind="email" parts={["info", "swissplant.ch"]} /><br />
+    <ContactLink kind="email" value="aW5mb0Bzd2lzc3BsYW50LmNo" /><br />
     <a href="https://www.uid.admin.ch/Detail.aspx?uid_id=CHE-111.792.021">CHE-111.792.021</a>
   </p>
   <h2>AgriPlant AG</h2>
@@ -29,7 +29,7 @@
     CH-3225 Müntschemier
   </p>
   <p>
-    <ContactLink kind="email" parts={["info", "agriplant.ch"]} /><br />
+    <ContactLink kind="email" value="aW5mb0BhZ3JpcGxhbnQuY2g=" /><br />
     <a href="https://www.uid.admin.ch/Detail.aspx?uid_id=CHE-308.084.278">CHE-308.084.278</a>
   </p>
   <h2>Opening Hours</h2>

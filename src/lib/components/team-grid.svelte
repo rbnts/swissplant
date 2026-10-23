@@ -7,8 +7,8 @@
     position: string;
     image: HTMLImgAttributes;
     contact?: {
-      email: string[];
-      phone: string[];
+      email: string;
+      phone: string;
     };
   }
 
@@ -28,8 +28,8 @@
           <span class="team-grid-item-name">{member.name}</span>
           <span>{member.position}</span>
           {#if member.contact}
-            <ContactLink kind="email" parts={member.contact.email} />
-            <ContactLink kind="phone" parts={member.contact.phone} />
+            <ContactLink kind="email" value={member.contact.email} />
+            <ContactLink kind="phone" value={member.contact.phone} />
           {/if}
         </div>
       </li>

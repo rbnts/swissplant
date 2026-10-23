@@ -25,7 +25,7 @@
     SwissPlant GmbH<br />
     Spitzallmendweg 11c<br />
     CH-3225 Müntschemier<br />
-    <ContactLink kind="email" parts={["info", "swissplant.ch"]} />
+    <ContactLink kind="email" value="aW5mb0Bzd2lzc3BsYW50LmNo" />
   </p>
   <h2>Personal Data We Collect</h2>
   <p>
@@ -101,7 +101,7 @@
   </p>
   <h2>Your Rights</h2>
   <p>
-    To exercise your data protection rights, you may contact us at the address above or send an email to <ContactLink kind="email" parts={["info", "swissplant.ch"]} />. Please note that we may ask you to verify your identity before responding substantively to such requests.
+    To exercise your data protection rights, you may contact us at the address above or send an email to <ContactLink kind="email" value="aW5mb0Bzd2lzc3BsYW50LmNo" />. Please note that we may ask you to verify your identity before responding substantively to such requests.
   </p>
   <ul>
     <li>Right of access: You have the right to request a copy of your personal data, which we will provide in electronic form.</li>

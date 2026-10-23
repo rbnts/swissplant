@@ -27,8 +27,8 @@
         fetchpriority: "low"
       },
       contact: {
-        email: ["m.loeffel", "swissplant.ch"],
-        phone: ["+41", "79", "631", "45", "59"]
+        email: "bS5sb2VmZmVsQHN3aXNzcGxhbnQuY2g=",
+        phone: "KzQxIDc5IDYzMSA0NSA1OQ=="
       }
     },
     {
@@ -41,8 +41,8 @@
         fetchpriority: "low"
       },
       contact: {
-        email: ["s.loeffel", "swissplant.ch"],
-        phone: ["+41", "79", "641", "52", "10"]
+        email: "cy5sb2VmZmVsQHN3aXNzcGxhbnQuY2g=",
+        phone: "KzQxIDc5IDY0MSA1MiAxMA=="
       }
     },
     {
@@ -55,8 +55,8 @@
         fetchpriority: "low"
       },
       contact: {
-        email: ["t.baumann", "swissplant.ch"],
-        phone: ["+41", "79", "815", "38", "35"]
+        email: "dC5iYXVtYW5uQHN3aXNzcGxhbnQuY2g=",
+        phone: "KzQxIDc5IDgxNSAzOCAzNQ=="
       }
     },
     {
