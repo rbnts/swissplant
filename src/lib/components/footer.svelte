@@ -1,5 +1,6 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
+  import ContactLink from "./contact-link.svelte";
   import Logo from "./logo.svelte";
   import { navigationItems } from "./navigation.svelte";
 
@@ -37,9 +38,9 @@
         CH-3225 Müntschemier
       </p>
       <p class="footer-text">
-        <a href="mailto:info@swissplant.ch">info@swissplant.ch</a>
+        <ContactLink kind="email" parts={["info", "swissplant.ch"]} />
         <br />
-        <a href="mailto:info@agriplant.ch">info@agriplant.ch</a>
+        <ContactLink kind="email" parts={["info", "agriplant.ch"]} />
       </p>
     </div>
     <div>
@@ -47,7 +48,7 @@
         {openingHours}
       </p>
       <p class="footer-text">
-        <a href="tel:+41323135210">+41 32 313 52 10</a>
+        <ContactLink kind="phone" parts={["+41", "32", "313", "52", "10"]} />
       </p>
     </div>
   </div>

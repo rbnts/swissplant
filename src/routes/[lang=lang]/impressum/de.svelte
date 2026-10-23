@@ -1,4 +1,5 @@
 <script lang="ts">
+  import ContactLink from "#lib/components/contact-link.svelte";
   import Content from "#lib/components/content.svelte";
   import Hero from "#lib/components/hero.svelte";
   import Iframe from "#lib/components/iframe.svelte";
@@ -19,7 +20,7 @@
     CH-3225 Müntschemier
   </p>
   <p>
-    <a href="mailto:info@swissplant.ch">info@swissplant.ch</a><br />
+    <ContactLink kind="email" parts={["info", "swissplant.ch"]} /><br />
     <a href="https://www.uid.admin.ch/Detail.aspx?uid_id=CHE-111.792.021">CHE-111.792.021</a>
   </p>
   <h2>AgriPlant AG</h2>
@@ -28,7 +29,7 @@
     CH-3225 Müntschemier
   </p>
   <p>
-    <a href="mailto:info@agriplant.ch">info@agriplant.ch</a><br />
+    <ContactLink kind="email" parts={["info", "agriplant.ch"]} /><br />
     <a href="https://www.uid.admin.ch/Detail.aspx?uid_id=CHE-308.084.278">CHE-308.084.278</a>
   </p>
   <h2>Öffnungszeiten</h2>

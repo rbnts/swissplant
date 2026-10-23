@@ -1,13 +1,14 @@
 <script lang="ts">
   import type { HTMLImgAttributes } from "svelte/elements";
+  import ContactLink from "./contact-link.svelte";
 
   interface Member {
     name: string;
     position: string;
     image: HTMLImgAttributes;
     contact?: {
-      email: string;
-      phone: string;
+      email: string[];
+      phone: string[];
     };
   }
 
@@ -27,10 +28,8 @@
           <span class="team-grid-item-name">{member.name}</span>
           <span>{member.position}</span>
           {#if member.contact}
-            <a href="mailto:{member.contact.email}">{member.contact.email}</a>
-            <a href="tel:{member.contact.phone.replaceAll(" ", "")}">
-              {member.contact.phone}
-            </a>
+            <ContactLink kind="email" parts={member.contact.email} />
+            <ContactLink kind="phone" parts={member.contact.phone} />
           {/if}
         </div>
       </li>

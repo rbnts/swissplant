@@ -27,8 +27,8 @@
         fetchpriority: "low"
       },
       contact: {
-        email: "m.loeffel@swissplant.ch",
-        phone: "+41 79 631 45 59"
+        email: ["m.loeffel", "swissplant.ch"],
+        phone: ["+41", "79", "631", "45", "59"]
       }
     },
     {
@@ -41,8 +41,8 @@
         fetchpriority: "low"
       },
       contact: {
-        email: "s.loeffel@swissplant.ch",
-        phone: "+41 79 641 52 10"
+        email: ["s.loeffel", "swissplant.ch"],
+        phone: ["+41", "79", "641", "52", "10"]
       }
     },
     {
@@ -55,8 +55,8 @@
         fetchpriority: "low"
       },
       contact: {
-        email: "t.baumann@swissplant.ch",
-        phone: "+41 79 815 38 35"
+        email: ["t.baumann", "swissplant.ch"],
+        phone: ["+41", "79", "815", "38", "35"]
       }
     },
     {
